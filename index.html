@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplikasi kasir (POS) untuk Ayam Kapuk Tenda Biru — kelola pesanan, menu, stok, laporan, dan struk.">
+  <title>Ayam Kapuk Tenda Biru — Kasir</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- ================= LANDING ================= -->
+  <div id="landingView" class="landing" hidden>
+    <header class="landing-nav">
+      <div class="landing-nav-inner">
+        <div class="landing-brand">
+          <span class="brand-logo">TB</span>
+          <strong data-brand>Ayam Kapuk Tenda Biru</strong>
+        </div>
+        <nav class="landing-menu">
+          <a href="#fitur">Fitur</a>
+          <a href="#cara">Cara Pakai</a>
+          <a href="#tentang">Tentang</a>
+        </nav>
+        <button class="btn primary" data-action="go-login">Masuk</button>
+      </div>
+    </header>
+
+    <section class="landing-hero">
+      <span class="landing-badge">Aplikasi Kasir / POS — jalan langsung di browser</span>
+      <h1>Kelola warung <span data-brand>Ayam Kapuk Tenda Biru</span> lebih rapi</h1>
+      <p>Catat pesanan, kelola menu dan stok, lihat laporan penjualan, dan cetak struk — semuanya dari satu aplikasi. Tanpa instal, tanpa internet, data tersimpan di perangkat ini.</p>
+      <div class="landing-cta">
+        <button class="btn primary big" data-action="go-login">Masuk ke Aplikasi</button>
+        <a class="btn big ghost" href="#fitur">Lihat Fitur</a>
+      </div>
+      <div class="landing-chips">
+        <span class="landing-chip">Tanpa instal</span>
+        <span class="landing-chip">Tanpa internet</span>
+        <span class="landing-chip">Tanpa biaya &amp; iklan</span>
+      </div>
+    </section>
+
+    <section class="landing-section" id="fitur">
+      <div class="landing-section-head">
+        <span class="section-eyebrow">Fitur</span>
+        <h2>Semua yang warungmu butuhkan</h2>
+        <p>Tanpa fitur berlebihan yang bikin bingung.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-no">01</span>
+          <span class="feature-icon">🛒</span>
+          <h3>Kasir cepat</h3>
+          <p>Pilih menu pelanggan, total dihitung otomatis, kembalian diperlihatkan saat bayar tunai.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-no">02</span>
+          <span class="feature-icon">🧾</span>
+          <h3>Struk siap cetak</h3>
+          <p>Struk rapi dengan nama warung dan nomor WhatsApp — cetak langsung atau simpan sebagai PDF.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-no">03</span>
+          <span class="feature-icon">📈</span>
+          <h3>Laporan penjualan</h3>
+          <p>Ringkasan harian dan bulanan, produk terlaris, serta ekspor data ke berkas CSV.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-no">04</span>
+          <span class="feature-icon">🍗</span>
+          <h3>Menu &amp; kategori</h3>
+          <p>Atur daftar menu, harga, dan ketersediaan langsung dari aplikasi — termasuk menu paket warung.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-no">05</span>
+          <span class="feature-icon">📦</span>
+          <h3>Pantau stok</h3>
+          <p>Catat stok bahan setiap transaksi dan dapat peringatan saat mulai menipis.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-no">06</span>
+          <span class="feature-icon">👥</span>
+          <h3>Pengguna &amp; peran</h3>
+          <p>Akun admin dan kasir dengan hak akses berbeda, plus cadangan data (backup) sekali klik.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-section" id="cara">
+      <div class="landing-section-head">
+        <span class="section-eyebrow">Cara Pakai</span>
+        <h2>Tiga langkah, langsung jualan</h2>
+        <p>Dari buka aplikasi sampai struk tercetak.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span>1</span>
+          <div>
+            <strong>Masuk</strong>
+            <p>Gunakan akun admin atau kasir yang sudah dibuat pemilik warung.</p>
+          </div>
+        </li>
+        <li>
+          <span>2</span>
+          <div>
+            <strong>Catat pesanan</strong>
+            <p>Di halaman Kasir, pilih menu pelanggan, metode bayar, lalu simpan transaksi.</p>
+          </div>
+        </li>
+        <li>
+          <span>3</span>
+          <div>
+            <strong>Struk &amp; laporan</strong>
+            <p>Struk langsung bisa dicetak, transaksi masuk ke laporan secara otomatis.</p>
+          </div>
+        </li>
+      </ol>
+      <div class="landing-note">Semua data tersimpan di browser perangkat ini — tidak dikirim ke mana pun. Lakukan backup rutin dari menu Pengaturan.</div>
+    </section>
+
+    <section class="landing-section" id="tentang">
+      <div class="landing-section-head">
+        <span class="section-eyebrow">Tentang</span>
+        <h2>Dibuat khusus untuk Tenda Biru</h2>
+        <p>Kasir sederhana untuk kebutuhan warung sehari-hari.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-brand">
+          <span class="brand-logo">TB</span>
+          <strong data-brand>Ayam Kapuk Tenda Biru</strong>
+          <small>Kantin Tenda Biru</small>
+          <div class="about-tags">
+            <span>Offline</span>
+            <span>Gratis</span>
+            <span>Data lokal</span>
+          </div>
+        </div>
+        <div class="about-body">
+          <p class="landing-about">Aplikasi ini dibuat khusus untuk <strong data-brand>Ayam Kapuk Tenda Biru</strong> (Kantin Tenda Biru) agar pencatatan pesanan, stok, dan laporan harian bisa dilakukan dari satu tempat.</p>
+          <div class="about-contact">
+            <div>
+              <span class="lbl">Pesanan &amp; pertanyaan</span>
+              <b>0895-340-340-653</b>
+            </div>
+            <span class="about-wa">WhatsApp</span>
+          </div>
+          <div class="about-cta">
+            <button class="btn primary" data-action="go-login">Masuk ke Aplikasi</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="landing-foot">
+      <span data-brand>Ayam Kapuk Tenda Biru</span> &middot; Kasir warung berbasis browser
+    </footer>
+  </div>
+
+  <!-- ================= LOGIN ================= -->
+  <div id="loginView" class="login-view" hidden>
+    <section class="login-panel">
+      <aside class="login-side">
+        <div class="login-side-head">
+          <span class="brand-logo">TB</span>
+          <strong data-brand>Ayam Kapuk Tenda Biru</strong>
+          <button type="button" class="login-side-back" data-action="back-landing">&#8592; Beranda</button>
+        </div>
+        <div class="login-side-body">
+          <h2>Lanjutkan mengelola usahamu dari sini.</h2>
+          <p>Satu aplikasi untuk kebutuhan kasir warungmu — dari pesanan sampai laporan.</p>
+          <ul class="login-checks">
+            <li>Kelola transaksi harian</li>
+            <li>Lihat laporan usaha</li>
+            <li>Pantau menu &amp; stok</li>
+            <li>Akses fitur kasir &amp; pengaturan</li>
+          </ul>
+        </div>
+        <div class="login-side-foot">
+          <span>Untuk UMKM Indonesia</span>
+          <span class="login-side-tag">Web &middot; Offline</span>
+        </div>
+      </aside>
+
+      <section class="login-main">
+        <div class="login-card">
+          <button type="button" class="login-back" data-action="back-landing" aria-label="Kembali ke beranda">&#8592; Kembali ke Beranda</button>
+
+          <div class="login-card-head">
+            <h2>Selamat datang kembali</h2>
+            <p>Masukkan akunmu untuk melanjutkan mengelola usahamu.</p>
+          </div>
+
+          <form id="loginForm" class="login-form" autocomplete="off">
+            <label class="field">
+              <span>Email / Username</span>
+              <div class="input-icon">
+                <input id="loginUsername" type="text" placeholder="Masukkan email atau username" required>
+              </div>
+            </label>
+            <label class="field">
+              <span>Kata Sandi</span>
+              <div class="input-icon">
+                <input id="loginPassword" type="password" placeholder="Masukkan kata sandi" required>
+                <button type="button" class="reveal" data-action="toggle-password" aria-label="Lihat password">Lihat</button>
+              </div>
+            </label>
+            <div class="login-row">
+              <button type="button" class="login-link" data-action="forgot-pass">Lupa kata sandi?</button>
+            </div>
+            <p id="loginError" class="login-error" hidden></p>
+            <button class="btn primary block big" type="submit">Masuk</button>
+          </form>
+
+          <div class="login-alt">Belum memiliki akun? <button type="button" class="login-link" data-action="back-landing">Daftar</button></div>
+
+          <div class="demo-box">
+            <p>Akun demo — klik untuk mengisi</p>
+            <div class="demo-actions">
+              <button class="demo-btn" type="button" data-action="fill-demo" data-user="admin" data-pass="admin123">
+                <div><strong>Admin</strong><small>admin / admin123</small></div>
+              </button>
+              <button class="demo-btn" type="button" data-action="fill-demo" data-user="kasir" data-pass="kasir123">
+                <div><strong>Kasir</strong><small>kasir / kasir123</small></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <!-- ================= APP ================= -->
+  <div id="appView" class="app" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-logo">TB</span>
+        <div>
+          <strong class="brand-name" data-brand>Ayam Kapuk Tenda Biru</strong>
+          <small>Kasir &amp; Point of Sale</small>
+        </div>
+      </div>
+      <nav class="nav" id="nav"></nav>
+      <div class="sidebar-foot">
+        <div class="sidebar-user">
+          <span class="avatar" id="sideAvatar">A</span>
+          <div>
+            <strong id="sideName">Admin</strong>
+            <small id="sideRole">Admin</small>
+          </div>
+        </div>
+        <button class="btn ghost block sm" data-action="logout">Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay" data-action="close-sidebar"></div>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <button class="icon-btn menu-toggle" data-action="toggle-sidebar" aria-label="Menu">☰</button>
+          <div class="page-heading">
+            <h1 id="pageTitle">Dashboard</h1>
+            <p id="pageSubtitle">Ringkasan performa warung</p>
+          </div>
+          <div class="topbar-actions">
+            <span class="today-chip" id="todayChip"></span>
+            <button class="icon-btn" id="themeToggle" data-action="toggle-theme" title="Ganti tema">Gelap</button>
+            <div class="user-menu">
+              <button class="user-chip" data-action="toggle-user-menu">
+                <span class="avatar" id="userAvatar">A</span>
+                <span class="user-meta">
+                  <strong id="userName">Admin</strong>
+                  <small id="userRole">Admin</small>
+                </span>
+                <span class="chev">▾</span>
+              </button>
+              <div class="user-dropdown" id="userDropdown" hidden>
+                <button data-action="logout">Keluar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="content" id="content"></main>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <div id="modalRoot"></div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/ui.js"></script>
+  <script src="assets/core.js"></script>
+  <script src="assets/pages-pos.js"></script>
+  <script src="assets/pages-admin.js"></script>
+  <script src="assets/actions-pos.js"></script>
+  <script src="assets/actions-admin.js"></script>
+  <script src="assets/boot.js"></script>
+</body>
+</html>

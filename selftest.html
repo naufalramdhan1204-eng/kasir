@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head><meta charset="UTF-8"><title>SELFTEST RUNNING</title></head>
+<body>
+<iframe id="f" width="1200" height="800" style="border:0"></iframe>
+<pre id="out">RUNNING</pre>
+<script>
+(function () {
+  var out = document.getElementById('out');
+  if (location.protocol === 'file:') {
+    document.getElementById('f').style.display = 'none';
+    document.getElementById('f').removeAttribute('src');
+    out.style.fontFamily = 'Consolas, monospace';
+    out.textContent = 'Selftest harus dijalankan lewat server lokal.\n' +
+      '(Browser memblokir akses iframe dari file://, jadi halaman ini belum bisa menguji apa pun.)\n\n' +
+      'Cara menjalankan:\n' +
+      '  1. Buka terminal di folder proyek ini\n' +
+      '  2. Jalankan:  python -m http.server 8000\n' +
+      '  3. Buka:      http://localhost:8000/selftest.html\n\n' +
+      'Aplikasi utama (index.html) tetap bisa dibuka langsung tanpa server.';
+    document.title = 'SELFTEST_INFO';
+    return;
+  }
+  var results = [];
+  function log(name, ok, extra) { results.push((ok ? 'PASS ' : 'FAIL ') + name + (extra ? ' | ' + extra : '')); }
+  var errs = [];
+  localStorage.clear();
+  var f = document.getElementById('f');
+  f.addEventListener('load', function once() {
+    f.removeEventListener('load', once);
+    try {
+    var win = f.contentWindow, doc = f.contentDocument;
+    win.onerror = function (msg) { errs.push(String(msg)); return false; };
+    var q = function (s) { return doc.querySelector(s); };
+    var qa = function (s) { return doc.querySelectorAll(s); };
+
+    log('LANDING_VISIBLE', !q('#landingView').hidden && q('#loginView').hidden && q('#appView').hidden);
+    log('LANDING_BRAND', q('.landing-brand strong').textContent === 'Ayam Kapuk Tenda Biru', q('.landing-brand strong').textContent);
+    log('LANDING_HERO', q('.landing-hero h1').textContent.indexOf('Ayam Kapuk Tenda Biru') !== -1);
+    log('LANDING_FEATURES', qa('.feature-card').length === 6, String(qa('.feature-card').length));
+    log('LANDING_STEPS', qa('.steps li').length === 3, String(qa('.steps li').length));
+
+    q('.landing-nav [data-action=go-login]').click();
+    log('GO_LOGIN', q('#loginView') && !q('#loginView').hidden && q('#landingView').hidden);
+    log('LOGIN_2PANEL', !!q('.login-side') && q('.login-card-head h2').textContent === 'Selamat datang kembali');
+    log('LOGIN_CHECKS', qa('.login-checks li').length === 4, String(qa('.login-checks li').length));
+
+    q('#loginUsername').value = 'salah';
+    q('#loginPassword').value = 'xxx';
+    q('#loginForm').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    log('WRONG_LOGIN_ERROR', !q('#loginError').hidden, q('#loginError').textContent);
+
+    q('[data-action=forgot-pass]').click();
+    var tb = q('#toasts');
+    log('FORGOT_TOAST', !!tb && tb.childElementCount > 0, 'toasts=' + (tb ? tb.childElementCount : 'none'));
+
+    q('.login-back').click();
+    log('BACK_LANDING', !q('#landingView').hidden && q('#loginView').hidden);
+
+    q('[data-action=go-login]').click();
+    q('#loginUsername').value = 'admin';
+    q('#loginPassword').value = 'admin123';
+    q('#loginForm').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    log('LOGIN_OK', q('#appView') && !q('#appView').hidden, 'user=' + q('#userName').textContent);
+    log('NAV_ITEMS', qa('#nav .nav-item').length > 0, String(qa('#nav .nav-item').length));
+    log('DASH_RENDER', q('#content').innerHTML.length > 100, 'len=' + q('#content').innerHTML.length);
+
+    q('.sidebar [data-action=logout]').click();
+    log('LOGOUT', q('#loginView') && !q('#loginView').hidden && q('#appView').hidden);
+
+    q('.login-alt [data-action=back-landing]').click();
+    log('BACK_LANDING_2', !q('#landingView').hidden && q('#loginView').hidden);
+
+    log('NO_JS_ERRORS', errs.length === 0, errs.join('; '));
+    } catch (e) {
+      results.push('GAGAL menjalankan selftest: ' + (e && e.message ? e.message : String(e)));
+      results.push('Pastikan halaman dibuka lewat http://localhost, bukan file://.');
+    }
+
+    document.getElementById('out').textContent = results.join('\n');
+    document.title = 'SELFTEST_DONE';
+  });
+  f.src = 'index.html';
+})();
+</script>
+</body>
+</html>
